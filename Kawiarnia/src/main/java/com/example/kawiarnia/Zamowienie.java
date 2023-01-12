@@ -1,31 +1,50 @@
 package com.example.kawiarnia;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Zamowienie {
-   private List<Napoj> zamowienie;
-private Platnosc platnosc;
+    private List<Napoj> zamowienie;
+    private Platnosc platnosc;
 
-float getWartosc(){return 1;}
+    Zamowienie(){
+        this.zamowienie = new ArrayList<>();
+    }
 
- void powtorz_ostatnie()
- {}
- void zaplac(){
+    public void dodaj(Napoj napoj){
+        this.zamowienie.add(napoj);
+    }
 
- }
- Memento save()
- {return new Memento(zamowienie);
+    public Iterator createIterator(){
+        return new ListIterator(this.zamowienie);
+    }
 
- }
- void restore(Memento m)
- {zamowienie=m.getZamowienie();
+    float getWartosc() {
+        return 1;
+    }
 
- }
- //Iterator createIterator(){}
+    void powtorz_ostatnie() {
+    }
 
-    void zmienSposobPlatnosci(Platnosc p){
-    platnosc=p;
+    void zaplac() {
+
+    }
+
+    Memento save() {
+        return new Memento(zamowienie);
+
+    }
+
+    void restore(Memento m) {
+        zamowienie = m.getZamowienie();
+
+    }
+
+    void zmienSposobPlatnosci(Platnosc p) {
+        platnosc = p;
 
     }
 }
+
+
+
