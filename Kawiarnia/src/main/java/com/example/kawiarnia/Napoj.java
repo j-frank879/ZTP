@@ -16,14 +16,6 @@ public abstract class Napoj {
         cena = 0;
     }
 
-    public Napoj(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia) {
-        this.nazwa = nazwa;
-        this.cena = cena;
-        this.baza = baza;
-        this.tempWody = tempWody;
-        this.rodzajNaczynia = rodzajNaczynia;
-        this.czasParzenia = czasParzenia;
-    }
 
     public String getNazwa() {
         return nazwa;
