@@ -1,44 +1,51 @@
 package com.example.kawiarnia;
 
 public class BudowniczyKawa implements Budowniczy {
-   private Kawa kawa;
-    @Override
-    public void reset() {
+    private String nazwa;
+    private float cena;
+    private String baza;
+    private int tempWody;
+    private String rodzajNaczynia;
+    private int czasParzenia;
 
+
+    @Override
+    public BudowniczyKawa nazwa(String nazwa) {
+        this.nazwa = nazwa;
+        return this;
     }
 
     @Override
-    public void dodajWody() {
-
+    public BudowniczyKawa cena(float cena) {
+        this.cena = cena;
+        return this;
     }
 
     @Override
-    public void dodajNaparu() {
-
+    public BudowniczyKawa baza(String baza) {
+        this.baza = baza;
+        return this;
     }
 
     @Override
-    public void dodajLod() {
-
+    public BudowniczyKawa tempWody(int tempWody) {
+        this.tempWody = tempWody;
+        return this;
     }
 
     @Override
-    public void dodajPrzyprawy() {
-
+    public BudowniczyKawa rodzajNaczynia(String rodzajNaczynia) {
+        this.rodzajNaczynia = rodzajNaczynia;
+        return this;
     }
 
     @Override
-    public void dodajMleko() {
-
+    public BudowniczyKawa czasParzenia(int czasParzenia) {
+        this.czasParzenia = czasParzenia;
+        return this;
     }
 
-    @Override
-    public void dodajCukier() {
-
-    }
-
-    @Override
-    public Napoj getResult() {
-        return null;
+    public Kawa build() {
+        return new Kawa(nazwa,cena,baza,tempWody,rodzajNaczynia,czasParzenia );
     }
 }

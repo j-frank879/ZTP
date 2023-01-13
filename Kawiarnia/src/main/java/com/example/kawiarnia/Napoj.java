@@ -7,15 +7,22 @@ public abstract class Napoj {
     private String nazwa;
     private ArrayList<String> skladniki;
     private float cena;
+    private String baza;
+    private int tempWody;
+    private String rodzajNaczynia;
+    private int czasParzenia;
 
     public Napoj() {
         cena = 0;
     }
 
-    public Napoj(Napoj n) {
+    public Napoj(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia) {
         this.nazwa = nazwa;
-        this.skladniki = new ArrayList<>(skladniki);
-
+        this.cena = cena;
+        this.baza = baza;
+        this.tempWody = tempWody;
+        this.rodzajNaczynia = rodzajNaczynia;
+        this.czasParzenia = czasParzenia;
     }
 
     public String getNazwa() {
@@ -52,4 +59,53 @@ public abstract class Napoj {
 
     //nie ma interfejsu Prototype, zamiast tego jest metoda abstrakcyjna(tak lepiej bo jest dziedziczenie z Napoju)
     public abstract Napoj clone();
+
+    public void setSkladniki(ArrayList<String> skladniki) {
+        this.skladniki = skladniki;
+    }
+
+    public void setBaza(String baza) {
+        this.baza = baza;
+    }
+
+    public void setTempWody(int tempWody) {
+        this.tempWody = tempWody;
+    }
+
+    public void setRodzajNaczynia(String rodzajNaczynia) {
+        this.rodzajNaczynia = rodzajNaczynia;
+    }
+
+    public void setCzasParzenia(int czasParzenia) {
+        this.czasParzenia = czasParzenia;
+    }
+
+    public String getBaza() {
+        return baza;
+    }
+
+    public int getTempWody() {
+        return tempWody;
+    }
+
+    public String getRodzajNaczynia() {
+        return rodzajNaczynia;
+    }
+
+    public int getCzasParzenia() {
+        return czasParzenia;
+    }
+
+    @Override
+    public String toString() {
+        return "Napoj{" +
+                "nazwa='" + nazwa + '\'' +
+                ", skladniki=" + skladniki +
+                ", cena=" + cena +
+                ", baza='" + baza + '\'' +
+                ", tempWody=" + tempWody +
+                ", rodzajNaczynia='" + rodzajNaczynia + '\'' +
+                ", czasParzenia=" + czasParzenia +
+                '}';
+    }
 }
