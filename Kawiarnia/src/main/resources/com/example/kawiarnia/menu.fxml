@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane prefHeight="315.0" prefWidth="366.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="315.0" prefWidth="366.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="7.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zamówienie:" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding></Pane>
    </center>
    <bottom>
-      <Pane prefHeight="47.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #56b09f;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="534.0" layoutY="11.0" mnemonicParsing="false" text="Zapłać" />
          </children>
       </Pane>
    </bottom>
    <left>
-      <Pane prefHeight="315.0" prefWidth="126.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="315.0" prefWidth="126.0" style="-fx-background-color: #65cfbb;" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zamówienie:" />
+            <VBox layoutX="13.0" layoutY="14.0" prefHeight="127.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="66.0" text="Kawy:" />
+                  <Button mnemonicParsing="false" text="Espresso" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" text="Cappuccino" />
+                  <Button mnemonicParsing="false" text="Macchiato" />
+               </children>
+            </VBox>
+            <VBox layoutX="13.0" layoutY="141.0" prefHeight="127.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="66.0" text="Herbaty:" />
+                  <Button mnemonicParsing="false" text="Zielona" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" text="Z imbirem" />
+                  <Button mnemonicParsing="false" text="Z cytryną" />
+               </children>
+            </VBox>
          </children>
       </Pane>
    </left>
    <top>
-      <Pane prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button layoutX="14.0" layoutY="6.0" mnemonicParsing="false" text="Kawy" />
-            <Button layoutX="72.0" layoutY="6.0" mnemonicParsing="false" text="Herbaty" />
-            <Button layoutX="148.0" layoutY="6.0" mnemonicParsing="false" text="Ciasto" />
-         </children>
-      </Pane>
+      <Pane prefHeight="37.0" prefWidth="600.0" style="-fx-background-color: #56b09f;" BorderPane.alignment="CENTER" />
    </top>
    <right>
-      <Pane prefHeight="315.0" prefWidth="137.0" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="315.0" prefWidth="137.0" style="-fx-background-color: #65cfbb;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="10.0" layoutY="166.0" text="Sposób płatności:" />
+            <Button layoutX="16.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Ostatni napój" />
+            <Button layoutX="4.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Ostatnie zamówienie" />
+            <ComboBox layoutX="13.0" layoutY="207.0" prefHeight="25.0" prefWidth="113.0" />
+         </children></Pane>
    </right>
 </BorderPane>
