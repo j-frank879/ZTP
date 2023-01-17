@@ -1,5 +1,6 @@
 package com.example.kawiarnia;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -12,35 +13,67 @@ public class Controller {
     public ComboBox platnosci;
     public Button ostatnie_zamowienie;
     public Button ostatni_napoj;
-    public Button z_imbir;
+
     public Button zaplac;
     public ImageView slide;
-    public TextArea zamowienie;
-
+    public TextArea zamowienie_tresc;
     @FXML
     private Label rachunek;
 
-    @FXML
-    private Button espresso;
-
-    @FXML
-    private Button cappuccino;
-
-    @FXML
-    private Button macchiato;
+    Zamowienie zamowienie;
+Director director;
 
 
+    public void initialize() {
+        platnosci.setItems(FXCollections.observableArrayList(
+                "BLIK","Karta","Gotówka"
+        ));
+        platnosci.getSelectionModel().select(0);
+        zamowienie=new Zamowienie();
+        director=new Director();
+    }
 
-    @FXML
-    private Button zielona;
-    private Button z_imbirem;
-
-    @FXML
-    private Button z_cytryna;
 
 
     @FXML
     protected void onEspressoClick() {
-        rachunek.setText("Welcome to JavaFX Application!");
+
+    }
+    @FXML
+    protected void onMacchiatoClick() {
+
+    }
+    @FXML
+    protected void onCappuccinoClick() {
+
+    }
+    @FXML
+    protected void onZielonaClick() {
+
+    }
+    @FXML
+    protected void onZ_ImbiremClick() {
+
+    }
+    @FXML
+    protected void onZ_CytrynaClick() {
+
+    }
+    @FXML
+    protected void onOstatniNapojClick() {
+
+    }
+    @FXML
+    protected void onOstatnieZamowienieClick() {
+
+    }
+    @FXML
+    protected void zmianaSposobuPlatnosci(){
+
+    }
+    @FXML
+    protected void zaplac(){
+
+
     }
 }

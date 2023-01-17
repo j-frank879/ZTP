@@ -16,7 +16,7 @@
       <Pane prefHeight="315.0" prefWidth="366.0" BorderPane.alignment="CENTER">
          <children>
             <Text layoutX="7.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zamówienie:" />
-            <TextArea fx:id="zamowienie" layoutX="7.0" layoutY="27.0" prefHeight="188.0" prefWidth="152.0" wrapText="true" />
+            <TextArea fx:id="zamowienie_tresc" layoutX="7.0" layoutY="27.0" prefHeight="188.0" prefWidth="152.0" wrapText="true" />
             <ImageView fx:id="slide" fitHeight="150.0" fitWidth="172.0" layoutX="159.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="rachunek" layoutX="8.0" layoutY="261.0" prefHeight="17.0" prefWidth="119.0" text="Do zapłaty: " />
          </children>
@@ -27,7 +27,7 @@
    <bottom>
       <Pane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #56b09f;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="zaplac" layoutX="534.0" layoutY="11.0" mnemonicParsing="false" text="Zapłać" />
+            <Button fx:id="zaplac" layoutX="534.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#zaplac" text="Zapłać" />
          </children>
       </Pane>
    </bottom>
@@ -38,16 +38,16 @@
                <children>
                   <Label prefHeight="35.0" prefWidth="66.0" text="Kawy:" />
                   <Button fx:id="espresso" mnemonicParsing="false" onMouseClicked="#onEspressoClick" text="Espresso" textAlignment="CENTER" />
-                  <Button fx:id="cappuccino" mnemonicParsing="false" text="Cappuccino" />
-                  <Button fx:id="macchiato" mnemonicParsing="false" text="Macchiato" />
+                  <Button fx:id="cappuccino" mnemonicParsing="false" onMouseClicked="#onCappuccinoClick" text="Cappuccino" />
+                  <Button fx:id="macchiato" mnemonicParsing="false" onMouseClicked="#onMacchiatoClick" text="Macchiato" />
                </children>
             </VBox>
             <VBox layoutX="13.0" layoutY="141.0" prefHeight="127.0" prefWidth="100.0">
                <children>
                   <Label prefHeight="35.0" prefWidth="66.0" text="Herbaty:" />
-                  <Button fx:id="zielona" mnemonicParsing="false" text="Zielona" textAlignment="CENTER" />
-                  <Button fx:id="z_imbir" mnemonicParsing="false" text="Z imbirem" />
-                  <Button fx:id="z_cytryna" mnemonicParsing="false" text="Z cytryną" />
+                  <Button fx:id="zielona" mnemonicParsing="false" onMouseClicked="#onZielonaClick" text="Zielona" textAlignment="CENTER" />
+                  <Button fx:id="z_imbirem" mnemonicParsing="false" onMouseClicked="#onZ_ImbiremClick" text="Z imbirem" />
+                  <Button fx:id="z_cytryna" mnemonicParsing="false" onMouseClicked="#onZ_CytrynaClick" text="Z cytryną" />
                </children>
             </VBox>
          </children>
@@ -60,9 +60,9 @@
       <Pane prefHeight="315.0" prefWidth="137.0" style="-fx-background-color: #65cfbb;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="10.0" layoutY="166.0" text="Sposób płatności:" />
-            <Button fx:id="ostatni_napoj" layoutX="16.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Ostatni napój" />
-            <Button fx:id="ostatnie_zamowienie" layoutX="4.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Ostatnie zamówienie" />
-            <ComboBox fx:id="platnosci" layoutX="13.0" layoutY="207.0" prefHeight="25.0" prefWidth="113.0" />
+            <Button fx:id="ostatni_napoj" layoutX="16.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#onOstatniNapojClick" prefHeight="25.0" prefWidth="104.0" text="Ostatni napój" />
+            <Button fx:id="ostatnie_zamowienie" layoutX="4.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#onOstatnieZamowienieClick" prefHeight="25.0" prefWidth="130.0" text="Ostatnie zamówienie" />
+            <ComboBox fx:id="platnosci" layoutX="13.0" layoutY="207.0" onInputMethodTextChanged="#zmianaSposobuPlatnosci" prefHeight="25.0" prefWidth="113.0" />
          </children></Pane>
    </right>
 </BorderPane>
