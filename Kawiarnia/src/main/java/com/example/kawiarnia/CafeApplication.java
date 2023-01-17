@@ -7,13 +7,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class CafeApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu.fxml"));
-       // FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CafeApplication.class.getResource("menu.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load(), 640 , 480);
         stage.setTitle("Kawiarnia");
+
 
 //        //*Test Buildera     **//
 //        Director director = new Director();
