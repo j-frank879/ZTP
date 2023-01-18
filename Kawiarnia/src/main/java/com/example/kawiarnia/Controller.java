@@ -29,6 +29,8 @@ Caretaker caretaker;
 BudowniczyHerbata b_herbata;
 BudowniczyKawa b_kawa;
 
+Napoj ostatniNapoj;
+
 
     public void initialize() {
         platnosci.setItems(FXCollections.observableArrayList(
@@ -41,6 +43,7 @@ BudowniczyKawa b_kawa;
         caretaker=new Caretaker(zamowienie);
 
         rachunek.setText("Do zapłaty: 0.00");
+
     }
 
 
@@ -53,6 +56,9 @@ BudowniczyKawa b_kawa;
         System.out.println(espresso.build());
         zamowienie.dodaj(espresso.build());
 
+        //do klonowania
+        ostatniNapoj = espresso.build();
+
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
 
@@ -64,6 +70,9 @@ BudowniczyKawa b_kawa;
         macchiato.nazwa("Macchiato").cena(6.50f).czasParzenia(4);
         System.out.println(macchiato.build());
         zamowienie.dodaj(macchiato.build());
+
+        //do klonowania
+        ostatniNapoj = macchiato.build();
     }
     @FXML
     protected void onCappuccinoClick() {
@@ -72,6 +81,9 @@ BudowniczyKawa b_kawa;
         cappucino.nazwa("Cappuccino").cena(4.80f).czasParzenia(5);
         System.out.println(cappucino.build());
         zamowienie.dodaj(cappucino.build());
+
+        //do klonowania
+        ostatniNapoj = cappucino.build();
     }
     @FXML
     protected void onZielonaClick() {
@@ -80,6 +92,10 @@ BudowniczyKawa b_kawa;
         zielona.nazwa("Zielona Herbata").cena(3.50f).czasParzenia(7);
         System.out.println(zielona.build());
         zamowienie.dodaj(zielona.build());
+
+        //do klonowania
+        ostatniNapoj = zielona.build();
+
     }
     @FXML
     protected void onZ_ImbiremClick() {
@@ -88,6 +104,9 @@ BudowniczyKawa b_kawa;
         imbirowa.nazwa("Herbata z imbirem").cena(5.0f).baza("lipton").czasParzenia(8);
         System.out.println(imbirowa.build());
         zamowienie.dodaj(imbirowa.build());
+
+        //do klonowania
+        ostatniNapoj = imbirowa.build();
     }
     @FXML
     protected void onZ_CytrynaClick() {
@@ -96,10 +115,19 @@ BudowniczyKawa b_kawa;
         cytrynowa.nazwa("Herbata z cytryną").baza("lipton").cena(5.50f);
         System.out.println(cytrynowa.build());
         zamowienie.dodaj(cytrynowa.build());
+
+        //do klonowania
+        ostatniNapoj = cytrynowa.build();
     }
     @FXML
     protected void onOstatniNapojClick() {
+        //wywala błąd jeżeli od razu clonujemy bez wczesniejszego dodania czegokolwiek
+        Napoj nowyNapoj = ostatniNapoj.clone();
+        zamowienie.dodaj(nowyNapoj);
 
+        //to poprawiane bedzie pewnie
+        zamowienie_tresc.setText(zamowienie.trescZamowienie());
+        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
     }
     @FXML
     protected void onOstatnieZamowienieClick() {
