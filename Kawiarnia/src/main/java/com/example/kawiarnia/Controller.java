@@ -229,6 +229,7 @@ public class Controller implements Initializable {
 
 
         zamowienie.clearZamowienie();
+        zamowienie.clearDodatki();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: 0.00");
 

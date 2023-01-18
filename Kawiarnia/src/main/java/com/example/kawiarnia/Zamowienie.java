@@ -74,6 +74,7 @@ public class Zamowienie {
     public void dodajDodatki(Dodatek d) {
         dodatki.add(d);
     }
+    public void clearDodatki(){dodatki.clear();}
 }
 
 
