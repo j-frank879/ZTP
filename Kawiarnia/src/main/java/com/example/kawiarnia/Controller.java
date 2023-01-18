@@ -56,9 +56,6 @@ Napoj ostatniNapoj;
         System.out.println(espresso.build());
         zamowienie.dodaj(espresso.build());
 
-        //do klonowania
-        ostatniNapoj = espresso.build();
-
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
 
@@ -70,9 +67,6 @@ Napoj ostatniNapoj;
         macchiato.nazwa("Macchiato").cena(6.50f).czasParzenia(4);
         System.out.println(macchiato.build());
         zamowienie.dodaj(macchiato.build());
-
-        //do klonowania
-        ostatniNapoj = macchiato.build();
     }
     @FXML
     protected void onCappuccinoClick() {
@@ -81,9 +75,6 @@ Napoj ostatniNapoj;
         cappucino.nazwa("Cappuccino").cena(4.80f).czasParzenia(5);
         System.out.println(cappucino.build());
         zamowienie.dodaj(cappucino.build());
-
-        //do klonowania
-        ostatniNapoj = cappucino.build();
     }
     @FXML
     protected void onZielonaClick() {
@@ -92,10 +83,6 @@ Napoj ostatniNapoj;
         zielona.nazwa("Zielona Herbata").cena(3.50f).czasParzenia(7);
         System.out.println(zielona.build());
         zamowienie.dodaj(zielona.build());
-
-        //do klonowania
-        ostatniNapoj = zielona.build();
-
     }
     @FXML
     protected void onZ_ImbiremClick() {
@@ -104,9 +91,6 @@ Napoj ostatniNapoj;
         imbirowa.nazwa("Herbata z imbirem").cena(5.0f).baza("lipton").czasParzenia(8);
         System.out.println(imbirowa.build());
         zamowienie.dodaj(imbirowa.build());
-
-        //do klonowania
-        ostatniNapoj = imbirowa.build();
     }
     @FXML
     protected void onZ_CytrynaClick() {
@@ -115,19 +99,18 @@ Napoj ostatniNapoj;
         cytrynowa.nazwa("Herbata z cytryną").baza("lipton").cena(5.50f);
         System.out.println(cytrynowa.build());
         zamowienie.dodaj(cytrynowa.build());
-
-        //do klonowania
-        ostatniNapoj = cytrynowa.build();
     }
     @FXML
     protected void onOstatniNapojClick() {
-        //wywala błąd jeżeli od razu clonujemy bez wczesniejszego dodania czegokolwiek
-        Napoj nowyNapoj = ostatniNapoj.clone();
-        zamowienie.dodaj(nowyNapoj);
+        if(zamowienie.getLista().size() > 0){
+            //clonuje z listy zamowienia ostatnio dodany napoj
+            Napoj nowyNapoj = zamowienie.getLista().get(zamowienie.getLista().size() - 1).clone();
+            zamowienie.dodaj(nowyNapoj);
 
-        //to poprawiane bedzie pewnie
-        zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+            //to poprawiane bedzie pewnie
+            zamowienie_tresc.setText(zamowienie.trescZamowienie());
+            rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        }
     }
     @FXML
     protected void onOstatnieZamowienieClick() {

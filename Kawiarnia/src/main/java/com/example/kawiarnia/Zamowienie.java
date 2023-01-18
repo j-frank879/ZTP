@@ -64,6 +64,10 @@ public class Zamowienie {
     public void clearZamowienie() {
         zamowienie.clear();
     }
+
+    public List<Napoj> getLista(){
+        return this.zamowienie;
+    }
 }
 
 
