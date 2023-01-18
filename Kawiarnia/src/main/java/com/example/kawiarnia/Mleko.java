@@ -1,6 +1,6 @@
 package com.example.kawiarnia;
 
-public class Mleko extends Dodatek{
+public class Mleko extends Dodatek {
     Mleko(Napoj n) {
         super(n);
     }
@@ -9,8 +9,8 @@ public class Mleko extends Dodatek{
         return (float) (super.getCena()+0.5);
     }
 
-    @Override
-    String opisSkladu() {
-        return super.opisSkladu()+"mleko ";
-    }
+//    @Override
+//    String opisSkladu() {
+//        return super.opisSkladu()+"mleko ";
+//    }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public abstract class Napoj {
     private String nazwa;
-    private ArrayList<String> skladniki;
+   // private ArrayList<String> skladniki;
     private float cena;
     private String baza;
     private int tempWody;
@@ -25,21 +25,21 @@ public abstract class Napoj {
         this.nazwa = nazwa;
     }
 
-    public String opisSkladu() {
-        String s = "";
-        for (String skladnik : skladniki) {
-            s += skladnik + " ";
-        }
-        return s;
-    }
+//    public String opisSkladu() {
+//        String s = "";
+//        for (String skladnik : skladniki) {
+//            s += skladnik + " ";
+//        }
+//        return s;
+//    }
 
-    public ArrayList<String> getSkladniki() {
-        return skladniki;
-    }
-
-    public void dodajSkladnik(String skladnik) {
-        skladniki.add(skladnik);
-    }
+//    public ArrayList<String> getSkladniki() {
+//        return skladniki;
+//    }
+//
+//    public void dodajSkladnik(String skladnik) {
+//        skladniki.add(skladnik);
+//    }
 
     public float getCena() {
         return cena;
@@ -52,9 +52,9 @@ public abstract class Napoj {
     //nie ma interfejsu Prototype, zamiast tego jest metoda abstrakcyjna(tak lepiej bo jest dziedziczenie z Napoju)
     public abstract Napoj clone();
 
-    public void setSkladniki(ArrayList<String> skladniki) {
-        this.skladniki = skladniki;
-    }
+//    public void setSkladniki(ArrayList<String> skladniki) {
+//        this.skladniki = skladniki;
+//    }
 
     public void setBaza(String baza) {
         this.baza = baza;
@@ -92,7 +92,6 @@ public abstract class Napoj {
     public String toString() {
         return "Napoj{" +
                 "nazwa='" + nazwa + '\'' +
-                ", skladniki=" + skladniki +
                 ", cena=" + cena +
                 ", baza='" + baza + '\'' +
                 ", tempWody=" + tempWody +

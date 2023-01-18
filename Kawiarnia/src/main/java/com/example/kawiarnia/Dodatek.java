@@ -6,10 +6,11 @@ public abstract class Dodatek {
     Dodatek(Napoj n) {
         napoj=n;
     }
-    float getCena()
-    {return napoj.getCena();}
-    String opisSkladu()
-    {return napoj.opisSkladu();
-
+    float getCena() {
+        return napoj.getCena();
     }
+//    String opisSkladu() {
+//        return napoj.opisSkladu();
+//
+//    }
 }

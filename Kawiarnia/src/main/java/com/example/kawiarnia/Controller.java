@@ -75,24 +75,24 @@ BudowniczyKawa b_kawa;
     }
     @FXML
     protected void onZielonaClick() {
-        BudowniczyKawa zielona = new BudowniczyKawa();
-        director.zrobKawe(zielona);
+        BudowniczyHerbata zielona = new BudowniczyHerbata();
+        director.zrobHerbate(zielona);
         zielona.nazwa("Zielona Herbata").cena(3.50f).czasParzenia(7);
         System.out.println(zielona.build());
         zamowienie.dodaj(zielona.build());
     }
     @FXML
     protected void onZ_ImbiremClick() {
-        BudowniczyKawa imbirowa = new BudowniczyKawa();
-        director.zrobKawe(imbirowa);
+        BudowniczyHerbata imbirowa = new BudowniczyHerbata();
+        director.zrobHerbate(imbirowa);
         imbirowa.nazwa("Herbata z imbirem").cena(5.0f).baza("lipton").czasParzenia(8);
         System.out.println(imbirowa.build());
         zamowienie.dodaj(imbirowa.build());
     }
     @FXML
     protected void onZ_CytrynaClick() {
-        BudowniczyKawa cytrynowa = new BudowniczyKawa();
-        director.zrobKawe(cytrynowa);
+        BudowniczyHerbata cytrynowa = new BudowniczyHerbata();
+        director.zrobHerbate(cytrynowa);
         cytrynowa.nazwa("Herbata z cytryną").baza("lipton").cena(5.50f);
         System.out.println(cytrynowa.build());
         zamowienie.dodaj(cytrynowa.build());

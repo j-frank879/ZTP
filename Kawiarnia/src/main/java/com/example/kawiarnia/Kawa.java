@@ -23,6 +23,7 @@ public class Kawa extends Napoj {
         this.setCzasParzenia(kawa.getCzasParzenia());
     }
 
+
     @Override
     public Napoj clone() {
         return new Kawa(this);
