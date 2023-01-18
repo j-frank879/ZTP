@@ -20,13 +20,29 @@ public class Zamowienie {
     }
 
     float getWartosc() {
-        return 1;
+        float wartosc=0;
+            for (Napoj n:zamowienie
+                 ) { wartosc+=n.getCena();
+
+            }
+            return wartosc;
+
     }
 
     void powtorz_ostatnie() {
     }
 
+    String trescZamowienie()
+    {String s="";
+        for (Napoj n:
+             zamowienie) {
+            s+=n.toString();
+            s+='\n';
+        }
+        return s;
+    }
     void zaplac() {
+        platnosc.zaplac();
 
     }
 
@@ -43,6 +59,10 @@ public class Zamowienie {
     void zmienSposobPlatnosci(Platnosc p) {
         platnosc = p;
 
+    }
+
+    public void clearZamowienie() {
+        zamowienie.clear();
     }
 }
 

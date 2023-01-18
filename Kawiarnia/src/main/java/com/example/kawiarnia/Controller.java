@@ -21,7 +21,13 @@ public class Controller {
     private Label rachunek;
 
     Zamowienie zamowienie;
+
     Director director;
+
+
+Caretaker caretaker;
+BudowniczyHerbata b_herbata;
+BudowniczyKawa b_kawa;
 
 
     public void initialize() {
@@ -30,7 +36,11 @@ public class Controller {
         ));
         platnosci.getSelectionModel().select(0);
         zamowienie=new Zamowienie();
+        zamowienie.zmienSposobPlatnosci(new Platnosc_BLIK());
         director=new Director();
+        caretaker=new Caretaker(zamowienie);
+
+        rachunek.setText("Do zapłaty: 0.00");
     }
 
 
@@ -42,6 +52,10 @@ public class Controller {
         espresso.nazwa("Espresso").cena(5.50f).baza("ziarna").czasParzenia(3).rodzajNaczynia("CoffieCup");
         System.out.println(espresso.build());
         zamowienie.dodaj(espresso.build());
+
+        zamowienie_tresc.setText(zamowienie.trescZamowienie());
+        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+
     }
     @FXML
     protected void onMacchiatoClick() {
@@ -90,14 +104,35 @@ public class Controller {
     @FXML
     protected void onOstatnieZamowienieClick() {
 
-    }
+    caretaker.cofnij();
+    zamowienie_tresc.setText(zamowienie.trescZamowienie());
+        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+}
+
     @FXML
     protected void zmianaSposobuPlatnosci(){
+        String s= (String) platnosci.getSelectionModel().getSelectedItem();
+        if(s.compareTo("BLIK")==0)
+        {zamowienie.zmienSposobPlatnosci(new Platnosc_BLIK());
+
+        }
+        else if (s.compareTo("Karta")==0)
+        {zamowienie.zmienSposobPlatnosci(new Platnosc_karta());
+
+        }
+        else
+        {zamowienie.zmienSposobPlatnosci(new Platnosc_gotowka());
+
+        }
 
     }
     @FXML
     protected void zaplac(){
-
-
+caretaker.zapisz(zamowienie.save());
+zmianaSposobuPlatnosci();
+zamowienie.zaplac();
+zamowienie.clearZamowienie();
+zamowienie_tresc.setText(zamowienie.trescZamowienie());
+rachunek.setText("Do zapłaty: 0.00");
     }
 }
