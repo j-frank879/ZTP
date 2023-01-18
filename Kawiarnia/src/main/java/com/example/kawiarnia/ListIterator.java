@@ -33,6 +33,8 @@ public class ListIterator implements Iterator {
 
     @Override
     public Napoj currentItem() {
+
         return this.zamowienie.get(this.index);
+
     }
 }

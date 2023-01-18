@@ -8,7 +8,7 @@ public class Caretaker {
     {this.zamowienie=zamowienie;}
     public void zapisz(Memento m)
     {memento=m;
-System.out.println(memento);
+
     }
     public void cofnij()
     {if(memento==null)
