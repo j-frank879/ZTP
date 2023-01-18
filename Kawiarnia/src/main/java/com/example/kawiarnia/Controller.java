@@ -88,8 +88,7 @@ public class Controller implements Initializable {
         zamowienie.dodaj(macchiato.build());
 
 
-        //do klonowania
-        ostatniNapoj = macchiato.build();
+
 
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
@@ -106,8 +105,6 @@ public class Controller implements Initializable {
         zamowienie.dodaj(cappucino.build());
 
 
-        //do klonowania
-        ostatniNapoj = cappucino.build();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
@@ -119,8 +116,6 @@ public class Controller implements Initializable {
         zamowienie.dodaj(kawaZMlekiem);
         System.out.println(kawaZMlekiem.getNazwa()+" "+kawaZMlekiem.cost()+" zl");
 
-        //do klonowania
-        ostatniNapoj = kawaZMlekiem;
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
     }
@@ -133,8 +128,6 @@ public class Controller implements Initializable {
         System.out.println(zielona.build());
         zamowienie.dodaj(zielona.build());
 
-        //do klonowania
-        ostatniNapoj = zielona.build();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
@@ -149,8 +142,6 @@ public class Controller implements Initializable {
         zamowienie.dodaj(imbirowa.build());
 
 
-        //do klonowania
-        ostatniNapoj = imbirowa.build();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
@@ -176,18 +167,13 @@ public class Controller implements Initializable {
     @FXML
     protected void onOstatniNapojClick() {
         if (zamowienie.getLista().size() > 0) {
+
             //clonuje z listy zamowienia ostatnio dodany napoj
             Napoj nowyNapoj = zamowienie.getLista().get(zamowienie.getLista().size() - 1).clone();
             zamowienie.dodaj(nowyNapoj);
-
-            //to poprawiane bedzie pewnie
             zamowienie_tresc.setText(zamowienie.trescZamowienie());
             rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
         }
-
-
-        zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
     }
 
 
