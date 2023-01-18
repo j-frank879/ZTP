@@ -9,9 +9,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Platnosc_karta implements Platnosc{
+public class Platnosc_karta implements Platnosc {
     private String name;
     private int PIN;
+
     @Override
     public void zaplac() {
         Stage stage = new Stage();
@@ -36,12 +37,12 @@ public class Platnosc_karta implements Platnosc{
         layout.setVgap(5);
         layout.setHgap(5);
 
-        layout.add(text1, 1,1);
-        layout.add(text2, 1,2);
-        layout.add(button, 1,3);
-        layout.add(label1, 1,0);
-        layout.add(label2, 0,1);
-        layout.add(label3, 0,2);
+        layout.add(text1, 1, 1);
+        layout.add(text2, 1, 2);
+        layout.add(button, 1, 3);
+        layout.add(label1, 1, 0);
+        layout.add(label2, 0, 1);
+        layout.add(label3, 0, 2);
 
         Scene scene = new Scene(layout, 250, 150);
         stage.setTitle("Karta");

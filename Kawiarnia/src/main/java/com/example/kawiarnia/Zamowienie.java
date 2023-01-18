@@ -5,42 +5,44 @@ import java.util.List;
 
 public class Zamowienie {
     private List<Napoj> zamowienie;
+    private List<Dodatek> dodatki;
     private Platnosc platnosc;
 
-    Zamowienie(){
+    Zamowienie() {
         this.zamowienie = new ArrayList<>();
+        this.dodatki = new ArrayList<>();
     }
 
-    public void dodaj(Napoj napoj){
+    public void dodaj(Napoj napoj) {
         this.zamowienie.add(napoj);
     }
 
-    public Iterator createIterator(){
+    public Iterator createIterator() {
         return new ListIterator(this.zamowienie);
     }
 
     float getWartosc() {
-        float wartosc=0;
-            for (Napoj n:zamowienie
-                 ) { wartosc+=n.getCena();
+        float wartosc = 0;
+        for (Napoj n : zamowienie
+        ) {
+            wartosc += n.getCena();
 
-            }
-            return wartosc;
+        }
+        return wartosc;
 
     }
 
-    void powtorz_ostatnie() {
-    }
 
-    String trescZamowienie()
-    {String s="";
-        for (Napoj n:
-             zamowienie) {
-            s+=n.toString();
-            s+='\n';
+    String trescZamowienie() {
+        String s = "";
+        for (Napoj n :
+                zamowienie) {
+            s += n.toString();
+            s += '\n';
         }
         return s;
     }
+
     void zaplac() {
         platnosc.zaplac();
 
@@ -65,8 +67,12 @@ public class Zamowienie {
         zamowienie.clear();
     }
 
-    public List<Napoj> getLista(){
+    public List<Napoj> getLista() {
         return this.zamowienie;
+    }
+
+    public void dodajDodatki(Dodatek d) {
+        dodatki.add(d);
     }
 }
 

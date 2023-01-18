@@ -3,7 +3,7 @@ package com.example.kawiarnia;
 public class Kawa extends Napoj {
 
 
-    Kawa(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia){
+    Kawa(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia) {
         this.setNazwa(nazwa);
         this.addValue(cena);
         this.setBaza(baza);
@@ -14,7 +14,7 @@ public class Kawa extends Napoj {
     }
 
     //dodatkowy konstruktor potrzebny do klonowania
-    Kawa(Kawa kawa){
+    Kawa(Kawa kawa) {
         this.setNazwa(kawa.getNazwa());
         this.addValue(kawa.getCena());
         this.setBaza(kawa.getBaza());
@@ -23,14 +23,18 @@ public class Kawa extends Napoj {
         this.setCzasParzenia(kawa.getCzasParzenia());
     }
 
-    public Kawa(){
+    public Kawa() {
         nazwa = "Kawa";
     }
+
     @Override
     public Napoj clone() {
         return new Kawa(this);
     }
-    public float cost(){
+
+    public float cost() {
         return 4.00f;
-    };
+    }
+
+    ;
 }

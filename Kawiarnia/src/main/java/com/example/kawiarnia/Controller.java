@@ -1,6 +1,5 @@
 package com.example.kawiarnia;
 
-import com.example.kawiarnia.Dekorator.Milk;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -72,8 +71,7 @@ public class Controller implements Initializable {
         espresso.nazwa("Espresso").cena(5.50f).baza("ziarna").czasParzenia(3).rodzajNaczynia("CoffieCup");
         System.out.println(espresso.build());
         zamowienie.dodaj(espresso.build());
-        Napoj espressoZMlekiem = new Milk(espresso.build());
-        System.out.println(espressoZMlekiem.toString());
+
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
         rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
@@ -86,8 +84,6 @@ public class Controller implements Initializable {
         macchiato.nazwa("Macchiato").cena(6.50f).czasParzenia(4);
         System.out.println(macchiato.build());
         zamowienie.dodaj(macchiato.build());
-
-
 
 
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
@@ -110,15 +106,7 @@ public class Controller implements Initializable {
 
 
     }
-    public void onKawaMlekoClick(ActionEvent event) {
-        Napoj kawa = new Kawa();
-        Napoj kawaZMlekiem = new Milk(kawa);
-        zamowienie.dodaj(kawaZMlekiem);
-        System.out.println(kawaZMlekiem.getNazwa()+" "+kawaZMlekiem.cost()+" zl");
 
-        zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
-    }
     @FXML
     protected void onZielonaClick() {
         BudowniczyHerbata zielona = new BudowniczyHerbata();
@@ -157,12 +145,25 @@ public class Controller implements Initializable {
 
     }
 
-    public void OnHerbataMlekoClick(ActionEvent event) {
-        Napoj herbata = new Kawa();
-        Napoj herbataZMlekiem = new Milk(herbata);
-        zamowienie.dodaj(herbataZMlekiem);
-        System.out.println(herbataZMlekiem.getNazwa()+" "+herbataZMlekiem.cost()+" zl");
+    public void onDodajMlekoClick(ActionEvent event) {
+        if (zamowienie.getLista().size() == 0)
+            return;
+        Napoj nowyNapoj = zamowienie.getLista().get(zamowienie.getLista().size() - 1).clone();
+        Dodatek mleko = new Mleko(nowyNapoj);
+        zamowienie.dodajDodatki(mleko);
+        System.out.println(mleko.toString());
+
     }
+
+    public void onDodajCukierClick(ActionEvent event) {
+        if (zamowienie.getLista().size() == 0)
+            return;
+        Napoj nowyNapoj = zamowienie.getLista().get(zamowienie.getLista().size() - 1).clone();
+        Dodatek cukier = new Cukier(nowyNapoj);
+        zamowienie.dodajDodatki(cukier);
+        System.out.println(cukier.toString());
+    }
+
 
     @FXML
     protected void onOstatniNapojClick() {
@@ -232,7 +233,6 @@ public class Controller implements Initializable {
         rachunek.setText("Do zapłaty: 0.00");
 
     }
-
 
 
 }

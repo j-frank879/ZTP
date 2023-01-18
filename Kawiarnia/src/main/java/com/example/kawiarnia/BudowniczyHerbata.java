@@ -1,6 +1,6 @@
 package com.example.kawiarnia;
 
-public class BudowniczyHerbata implements Budowniczy{
+public class BudowniczyHerbata implements Budowniczy {
     private String nazwa;
     private float cena;
     private String baza;
@@ -45,7 +45,7 @@ public class BudowniczyHerbata implements Budowniczy{
         return this;
     }
 
-    public Herbata build(){
-        return new Herbata(nazwa,cena,baza,tempWody,rodzajNaczynia,czasParzenia );
+    public Herbata build() {
+        return new Herbata(nazwa, cena, baza, tempWody, rodzajNaczynia, czasParzenia);
     }
 }

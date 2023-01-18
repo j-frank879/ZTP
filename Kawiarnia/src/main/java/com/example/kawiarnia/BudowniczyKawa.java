@@ -46,6 +46,6 @@ public class BudowniczyKawa implements Budowniczy {
     }
 
     public Kawa build() {
-        return new Kawa(nazwa,cena,baza,tempWody,rodzajNaczynia,czasParzenia );
+        return new Kawa(nazwa, cena, baza, tempWody, rodzajNaczynia, czasParzenia);
     }
 }

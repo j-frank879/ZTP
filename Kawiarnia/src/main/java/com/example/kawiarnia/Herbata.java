@@ -3,7 +3,7 @@ package com.example.kawiarnia;
 public class Herbata extends Napoj {
 
 
-    Herbata(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia){
+    Herbata(String nazwa, float cena, String baza, int tempWody, String rodzajNaczynia, int czasParzenia) {
         this.setNazwa(nazwa);
         this.addValue(cena);
         this.setBaza(baza);
@@ -13,7 +13,7 @@ public class Herbata extends Napoj {
     }
 
     //dodatkowy konstruktor potrzebny do klonowania
-    Herbata(Herbata herbata){
+    Herbata(Herbata herbata) {
         this.setNazwa(herbata.getNazwa());
         this.addValue(herbata.getCena());
         this.setBaza(herbata.getBaza());
@@ -27,10 +27,13 @@ public class Herbata extends Napoj {
         return new Herbata(this);
     }
 
-    public Herbata(){
+    public Herbata() {
         nazwa = "Herbata";
     }
-    public float cost(){
+
+    public float cost() {
         return 3.00f;
-    };
+    }
+
+    ;
 }

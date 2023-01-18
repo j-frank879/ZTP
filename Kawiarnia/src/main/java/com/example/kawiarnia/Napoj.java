@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public abstract class Napoj {
     public String nazwa;
-   // private ArrayList<String> skladniki;
+    // private ArrayList<String> skladniki;
     private float cena;
     private String baza;
     private int tempWody;
@@ -44,6 +44,7 @@ public abstract class Napoj {
     public float getCena() {
         return cena;
     }
+
     public abstract float cost();
 
     public void addValue(float cena) {
@@ -53,9 +54,6 @@ public abstract class Napoj {
     //nie ma interfejsu Prototype, zamiast tego jest metoda abstrakcyjna(tak lepiej bo jest dziedziczenie z Napoju)
     public abstract Napoj clone();
 
-//    public void setSkladniki(ArrayList<String> skladniki) {
-//        this.skladniki = skladniki;
-//    }
 
     public void setBaza(String baza) {
         this.baza = baza;
@@ -93,6 +91,6 @@ public abstract class Napoj {
     public String toString() {
         return
                 "nazwa='" + nazwa + '\'' +
-                ", cena=" + cena;
+                        ", cena=" + cena;
     }
 }

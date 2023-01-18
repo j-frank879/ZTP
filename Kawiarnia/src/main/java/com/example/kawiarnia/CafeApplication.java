@@ -12,7 +12,7 @@ public class CafeApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CafeApplication.class.getResource("menu.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 640 , 480);
+        Scene scene = new Scene(fxmlLoader.load(), 640, 480);
         stage.setTitle("Kawiarnia");
 
 

@@ -7,11 +7,13 @@ public class Cukier extends Dodatek {
 
     @Override
     float getCena() {
-        return (float) (super.getCena()+0.5);
+        return (float) (super.getCena() + 0.5);
     }
 
-//    @Override
-//    String opisSkladu() {
-//        return super.opisSkladu()+"cukier ";
-//    }
+    @Override
+    public String toString() {
+        return super.toString() + " +cukier" + getCena();
+
+    }
+
 }

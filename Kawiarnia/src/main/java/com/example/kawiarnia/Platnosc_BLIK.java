@@ -9,8 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Platnosc_BLIK implements Platnosc{
+public class Platnosc_BLIK implements Platnosc {
     private int kod;
+
     @Override
     public void zaplac() {
 
@@ -36,10 +37,10 @@ public class Platnosc_BLIK implements Platnosc{
         layout.setVgap(5);
         layout.setHgap(5);
 
-        layout.add(text1, 1,1);
-        layout.add(button, 1,3);
-        layout.add(label1, 1,0);
-        layout.add(label2, 0,1);
+        layout.add(text1, 1, 1);
+        layout.add(button, 1, 3);
+        layout.add(label1, 1, 0);
+        layout.add(label2, 0, 1);
 
 
         Scene scene = new Scene(layout, 250, 150);

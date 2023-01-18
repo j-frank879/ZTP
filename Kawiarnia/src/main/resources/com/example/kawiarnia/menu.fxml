@@ -39,7 +39,7 @@
                   <Button fx:id="espresso" mnemonicParsing="false" onMouseClicked="#onEspressoClick" text="Espresso" textAlignment="CENTER" />
                   <Button fx:id="cappuccino" mnemonicParsing="false" onMouseClicked="#onCappuccinoClick" text="Cappuccino" />
                   <Button fx:id="macchiato" mnemonicParsing="false" onMouseClicked="#onMacchiatoClick" text="Macchiato" />
-                  <Button fx:id="kawaZMlekiemBtn" mnemonicParsing="false" onAction="#onKawaMlekoClick" text="Z Mlekiem" />
+                  <Button fx:id="dodaj_mleko" mnemonicParsing="false" onAction="#onDodajMlekoClick" text="Dodaj mleko" />
                </children>
             </VBox>
             <VBox layoutX="13.0" layoutY="141.0" prefHeight="135.0" prefWidth="100.0">
@@ -48,7 +48,7 @@
                   <Button fx:id="zielona" mnemonicParsing="false" onMouseClicked="#onZielonaClick" text="Zielona" textAlignment="CENTER" />
                   <Button fx:id="z_imbirem" mnemonicParsing="false" onMouseClicked="#onZ_ImbiremClick" text="Z imbirem" />
                   <Button fx:id="z_cytryna" mnemonicParsing="false" onMouseClicked="#onZ_CytrynaClick" text="Z cytryną" />
-                  <Button fx:id="herbataZMlekiemBtn" mnemonicParsing="false" onAction="#OnHerbataMlekoClick" text="Z Mlekiem" />
+                  <Button fx:id="dodaj_cukier" mnemonicParsing="false" onAction="#onDodajCukierClick" text="Dodaj cukier" />
                </children>
             </VBox>
          </children>
