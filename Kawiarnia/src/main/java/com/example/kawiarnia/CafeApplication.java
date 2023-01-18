@@ -14,6 +14,8 @@ public class CafeApplication extends Application {
 
         Scene scene = new Scene(fxmlLoader.load(), 640 , 480);
         stage.setTitle("Kawiarnia");
+
+
         stage.setScene(scene);
         stage.show();
     }

@@ -1,10 +1,11 @@
 package com.example.kawiarnia;
 
-import javafx.animation.AnimationTimer;
+import com.example.kawiarnia.Dekorator.Milk;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,33 +37,32 @@ public class Controller implements Initializable {
     Director director;
 
 
-Caretaker caretaker;
+    Caretaker caretaker;
 
-Napoj ostatniNapoj;
+    Napoj ostatniNapoj;
 
-Image herbata;
-Image kawa;
+    Image herbata;
+    Image kawa;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         platnosci.setItems(FXCollections.observableArrayList(
-                "BLIK","Karta","Gotówka"
+                "BLIK", "Karta", "Gotówka"
         ));
         platnosci.getSelectionModel().select(0);
-        zamowienie=new Zamowienie();
+        zamowienie = new Zamowienie();
         zamowienie.zmienSposobPlatnosci(new Platnosc_BLIK());
-        director=new Director();
-        caretaker=new Caretaker(zamowienie);
+        director = new Director();
+        caretaker = new Caretaker(zamowienie);
 
         rachunek.setText("Do zapłaty: 0.00");
         File file = new File("herbata.jpeg");
         herbata = new Image(file.toURI().toString());
-        file=new File("kawa.jpg");
-        kawa=new Image(file.toURI().toString());
+        file = new File("kawa.jpg");
+        kawa = new Image(file.toURI().toString());
 
     }
-
 
 
     @FXML
@@ -72,11 +72,13 @@ Image kawa;
         espresso.nazwa("Espresso").cena(5.50f).baza("ziarna").czasParzenia(3).rodzajNaczynia("CoffieCup");
         System.out.println(espresso.build());
         zamowienie.dodaj(espresso.build());
-
+        Napoj espressoZMlekiem = new Milk(espresso.build());
+        System.out.println(espressoZMlekiem.toString());
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
     }
+
     @FXML
     protected void onMacchiatoClick() {
         BudowniczyKawa macchiato = new BudowniczyKawa();
@@ -86,15 +88,15 @@ Image kawa;
         zamowienie.dodaj(macchiato.build());
 
 
-
         //do klonowania
         ostatniNapoj = macchiato.build();
 
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
 
     }
+
     @FXML
     protected void onCappuccinoClick() {
         BudowniczyKawa cappucino = new BudowniczyKawa();
@@ -107,9 +109,20 @@ Image kawa;
         //do klonowania
         ostatniNapoj = cappucino.build();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
 
+    }
+    public void onKawaMlekoClick(ActionEvent event) {
+        Napoj kawa = new Kawa();
+        Napoj kawaZMlekiem = new Milk(kawa);
+        zamowienie.dodaj(kawaZMlekiem);
+        System.out.println(kawaZMlekiem.getNazwa()+" "+kawaZMlekiem.cost()+" zl");
+
+        //do klonowania
+        ostatniNapoj = kawaZMlekiem;
+        zamowienie_tresc.setText(zamowienie.trescZamowienie());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
     }
     @FXML
     protected void onZielonaClick() {
@@ -122,11 +135,11 @@ Image kawa;
 
         //do klonowania
         ostatniNapoj = zielona.build();
-
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
     }
+
     @FXML
     protected void onZ_ImbiremClick() {
         BudowniczyHerbata imbirowa = new BudowniczyHerbata();
@@ -139,9 +152,10 @@ Image kawa;
         //do klonowania
         ostatniNapoj = imbirowa.build();
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
 
     }
+
     @FXML
     protected void onZ_CytrynaClick() {
         BudowniczyHerbata cytrynowa = new BudowniczyHerbata();
@@ -151,73 +165,80 @@ Image kawa;
         zamowienie.dodaj(cytrynowa.build());
 
     }
+
+    public void OnHerbataMlekoClick(ActionEvent event) {
+        Napoj herbata = new Kawa();
+        Napoj herbataZMlekiem = new Milk(herbata);
+        zamowienie.dodaj(herbataZMlekiem);
+        System.out.println(herbataZMlekiem.getNazwa()+" "+herbataZMlekiem.cost()+" zl");
+    }
+
     @FXML
     protected void onOstatniNapojClick() {
-        if(zamowienie.getLista().size() > 0){
+        if (zamowienie.getLista().size() > 0) {
             //clonuje z listy zamowienia ostatnio dodany napoj
             Napoj nowyNapoj = zamowienie.getLista().get(zamowienie.getLista().size() - 1).clone();
             zamowienie.dodaj(nowyNapoj);
 
             //to poprawiane bedzie pewnie
             zamowienie_tresc.setText(zamowienie.trescZamowienie());
-            rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+            rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
         }
 
 
         zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
     }
+
 
     @FXML
     protected void onOstatnieZamowienieClick() {
 
-    caretaker.cofnij();
-    zamowienie_tresc.setText(zamowienie.trescZamowienie());
-        rachunek.setText("Do zapłaty: "+zamowienie.getWartosc());
-}
+        caretaker.cofnij();
+        zamowienie_tresc.setText(zamowienie.trescZamowienie());
+        rachunek.setText("Do zapłaty: " + zamowienie.getWartosc());
+    }
 
     @FXML
-    protected void zmianaSposobuPlatnosci(){
-        String s= (String) platnosci.getSelectionModel().getSelectedItem();
-        if(s.compareTo("BLIK")==0)
-        {zamowienie.zmienSposobPlatnosci(new Platnosc_BLIK());
+    protected void zmianaSposobuPlatnosci() {
+        String s = (String) platnosci.getSelectionModel().getSelectedItem();
+        if (s.compareTo("BLIK") == 0) {
+            zamowienie.zmienSposobPlatnosci(new Platnosc_BLIK());
 
-        }
-        else if (s.compareTo("Karta")==0)
-        {zamowienie.zmienSposobPlatnosci(new Platnosc_karta());
+        } else if (s.compareTo("Karta") == 0) {
+            zamowienie.zmienSposobPlatnosci(new Platnosc_karta());
 
-        }
-        else
-        {zamowienie.zmienSposobPlatnosci(new Platnosc_gotowka());
+        } else {
+            zamowienie.zmienSposobPlatnosci(new Platnosc_gotowka());
 
         }
 
     }
+
     @FXML
     protected void zaplac() {
-caretaker.zapisz(zamowienie.save());
-zmianaSposobuPlatnosci();
-zamowienie.zaplac();
+        caretaker.zapisz(zamowienie.save());
+        zmianaSposobuPlatnosci();
+        zamowienie.zaplac();
 
-        Iterator i= zamowienie.createIterator();
-        Timeline timeline=new Timeline();
-int count=0;
-        while(!(i.isDone()))
-        {
-            if(i.currentItem() instanceof Kawa)
-            {timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count),new KeyValue(slide.imageProperty(), kawa)));
-               count++;}
-            else
-            {timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count),new KeyValue(slide.imageProperty(), herbata)));
-            count++;}
+        Iterator i = zamowienie.createIterator();
+        Timeline timeline = new Timeline();
+        int count = 0;
+        while (!(i.isDone())) {
+            if (i.currentItem() instanceof Kawa) {
+                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count), new KeyValue(slide.imageProperty(), kawa)));
+                count++;
+            } else {
+                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count), new KeyValue(slide.imageProperty(), herbata)));
+                count++;
+            }
 
 
             i.next();
 
         }
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count),new KeyValue(slide.imageProperty(), null)));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(count), new KeyValue(slide.imageProperty(), null)));
         timeline.playFromStart();
-
 
 
         zamowienie.clearZamowienie();
@@ -225,6 +246,7 @@ int count=0;
         rachunek.setText("Do zapłaty: 0.00");
 
     }
+
 
 
 }

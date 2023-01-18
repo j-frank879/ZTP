@@ -23,9 +23,14 @@ public class Kawa extends Napoj {
         this.setCzasParzenia(kawa.getCzasParzenia());
     }
 
-
+    public Kawa(){
+        nazwa = "Kawa";
+    }
     @Override
     public Napoj clone() {
         return new Kawa(this);
     }
+    public float cost(){
+        return 4.00f;
+    };
 }

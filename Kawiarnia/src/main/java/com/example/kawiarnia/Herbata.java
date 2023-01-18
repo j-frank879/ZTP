@@ -26,4 +26,11 @@ public class Herbata extends Napoj {
     public Napoj clone() {
         return new Herbata(this);
     }
+
+    public Herbata(){
+        nazwa = "Herbata";
+    }
+    public float cost(){
+        return 3.00f;
+    };
 }

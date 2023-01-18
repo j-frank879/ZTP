@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public abstract class Napoj {
-    private String nazwa;
+    public String nazwa;
    // private ArrayList<String> skladniki;
     private float cena;
     private String baza;
@@ -44,6 +44,7 @@ public abstract class Napoj {
     public float getCena() {
         return cena;
     }
+    public abstract float cost();
 
     public void addValue(float cena) {
         this.cena += cena;
@@ -90,13 +91,8 @@ public abstract class Napoj {
 
     @Override
     public String toString() {
-        return "Napoj{" +
+        return
                 "nazwa='" + nazwa + '\'' +
-                ", cena=" + cena +
-                ", baza='" + baza + '\'' +
-                ", tempWody=" + tempWody +
-                ", rodzajNaczynia='" + rodzajNaczynia + '\'' +
-                ", czasParzenia=" + czasParzenia +
-                '}';
+                ", cena=" + cena;
     }
 }
