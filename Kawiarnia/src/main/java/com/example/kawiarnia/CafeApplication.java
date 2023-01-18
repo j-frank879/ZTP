@@ -14,21 +14,6 @@ public class CafeApplication extends Application {
 
         Scene scene = new Scene(fxmlLoader.load(), 640 , 480);
         stage.setTitle("Kawiarnia");
-
-
-//        //*Test Buildera     **//
-//        Director director = new Director();
-//
-//        BudowniczyKawa budowniczyKawa = new BudowniczyKawa();
-//        director.zrobKawe(budowniczyKawa);
-//        budowniczyKawa.nazwa("latte").cena(5.50f);
-//        System.out.println(budowniczyKawa.build());
-//
-//        BudowniczyHerbata budowniczyHerbata  = new BudowniczyHerbata();
-//        director.zrobHerbate(budowniczyHerbata);
-//        budowniczyHerbata.nazwa("czarna").rodzajNaczynia("szklanka");
-//        System.out.println(budowniczyHerbata.build());
-
         stage.setScene(scene);
         stage.show();
     }
